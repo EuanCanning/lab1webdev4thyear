@@ -2,7 +2,10 @@ const http = require('http')
 const fs = require('fs')
 const server = http.createServer((req, res) => {
  res.writeHead(200, { 'content-type': 'text/html' })
- fs.createReadStream('4thyeartest.html').pipe(res)
+ const PORT = process.env.PORT || 3000;
+
+ 
+ fs.createReadStream('4thyeartest').pipe(res)
 })
-server.listen(process.env.PORT || 3000)
-console.log('Server running at http://127.0.0.1:3000/');
+server.listen(PORT)
+console.log('Server running at port $ { PORT } ');
